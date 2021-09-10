@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Train One', cursive;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background: #ffb700;
+    transform-style: preserve-3d;
+    transform: perspective(60rm);
+}
+.weirdo {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 7rem;
+  line-height: 1;
+  transform: rotateX(25deg) rotateY(20deg);
+}
+
+.weird-list {
+  cursor: pointer;
+  position: relative;
+  color: transparent;
+}
+.weird-list::before {
+    background: #ffffff;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    right: -10%;
+    height: 10px;
+    border-radius: 15%;
+    margin-top: -5px;
+    transform: scale(0);
+    z-index: 1;
+}
+
+
+.letters {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  color: #ffffff;
+  top: 0;
+  height: 50%;
+  transition: all .8s cubic-bezier(.20,1,.50,1);
+  
+}
+.letters span { 
+    display: block; 
+  }
+
+.letters + .letters{
+  top: 50%;
+  
+}
+.letters + .letters span { 
+    transform: translateY(-50%); 
+  }
+.weird-list:hover .letters{
+    color: #f8e1b6; 
+    transform: skewX(15deg) translateX(10px);
+}
+.weird-list:hover .letters + .letters{ 
+    transform: skewX(15deg) translateX(-15px); }
+.weird-list:hover::before { transform: scale(1); }
